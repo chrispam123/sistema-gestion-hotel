@@ -1,0 +1,19 @@
+# Archivos compilados
+*.class
+bin/
+lib/
+
+# Archivos de configuración de VS Code (opcional, pero recomendado ocultarlos)
+.vscode/
+.settings/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de datos (Depende de ti)
+# En un entorno real, NO subimos la base de datos real.
+# Pero como esto es una práctica, puedes dejarla o ignorarla.
+# Si quieres ignorarla, añade la siguiente línea:
+
+inventario_hotel.txt
