@@ -89,25 +89,19 @@ public class VentanaPrincipal extends JFrame {
                     int noches = Integer.parseInt(nochesStr);
                     String descuentoStr = JOptionPane.showInputDialog("Ingrese el porcentaje de descuento:");
                     double descuento = Double.parseDouble(descuentoStr);
-                    //buscar la habitacion para calcular el total con descuento
-                    Habitacion hab = null;
-                    for (Habitacion h : miHotel.listaHabitaciones) {
-                        if (h.numero == numero) {
-                            hab = h;
-                            break;
-                        }
-                    }
-                    if (hab != null) {
-                        double totalConDescuento = hab.calcularTotalConDescuento(noches, descuento);
-                        JOptionPane.showMessageDialog(null, "El total a pagar con descuento es: $" + totalConDescuento);
+                    double total = miHotel.checkoutHabitacion(numero, noches, descuento);
+                    if (total == -1) {
+                        JOptionPane.showMessageDialog(null, "❌ La habitación ya está libre.");
+                    } else if (total == -2) {
+                        JOptionPane.showMessageDialog(null, "⚠️ No existe esa habitación.");
                     } else {
-                        JOptionPane.showMessageDialog(null, "❌ No se encontró la habitación.");
-                        return;
+                        JOptionPane.showMessageDialog(null, "✅ Checkout exitoso. Total a pagar con descuento: $" + total);
                     }
-                    
+                    //  
 
-                    miHotel.checkoutHabitacion(numero);
-                    JOptionPane.showMessageDialog(null, "✅ Checkout procesado.");
+
+                    
+                   // JOptionPane.showMessageDialog(null, "✅ Checkout procesado.");
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "❌ Entrada inválida. Por favor, ingrese un número válido para la habitación.");
                 }

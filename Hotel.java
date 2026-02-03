@@ -48,22 +48,27 @@ public class Hotel {// Definimos la clase Hotel
 
 
 
-    //Metodo checkout buscar y liberar habitacion
-    public void checkoutHabitacion(int numeroHabitacion) {// Método para hacer checkout de una habitación
+    //Metodo checkout y descuento
+    public double checkoutHabitacion(int numeroHabitacion, int noches, double descuento) {// Método para hacer checkout de una habitación
         boolean encontrada = false;// Bandera para verificar si se encontró la habitación
         for (Habitacion h : listaHabitaciones) {// Recorremos la lista de habitaciones  
             if (h.numero == numeroHabitacion) {// Si encontramos la habitación deseada  
                 encontrada = true;// Marcamos que la encontramos  
                 if (h.estaOcupada) {// Si está ocupada  
                     h.liberar();// Liberamos la habitación  
-                    System.out.println("✅ Checkout exitoso.");// Mensaje de confirmación  
-                } else {// Si ya está libre  
-                    System.out.println("❌ Error: La habitación ya está libre.");// Mensaje de error  
+                    //System.out.println("✅ Checkout exitoso.");// Mensaje de confirmación  
+                    double total = h.calcularTotalConDescuento(noches, descuento);
+                    //System.out.println("Total a pagar con descuento: $" + total);   
+                    return total;// Retornamos el total a pagar
+                } else {// Si ya está libre 
+                    return -1;// Indicamos que la habitación ya está libre
+                   //System.out.println("❌ Error: La habitación ya está libre.");// Mensaje de error  
                 }// Fin del else  
-                break;// Salimos del bucle una vez encontrada  
+               // break;// Salimos del bucle una vez encontrada  
             }// Fin del if  
         }// Fin del for  
         if (!encontrada) System.out.println("⚠️ No existe esa habitación.");// Mensaje si no se encontró la habitación  
+        return -2;// Indicamos que no se encontró la habitación
     }   
 
 
