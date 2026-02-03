@@ -25,6 +25,8 @@ El sistema es una aplicación de gestión hotelera desarrollada en Java, que com
 - `public void liberar()`
 - `public double calcularTotal(int noches)`
 - `public void mostrarDetalles()`
+- `public double calcularTotalConDescuento(int noches, double porcentajeDescuento)`
+
 
 ---
 
