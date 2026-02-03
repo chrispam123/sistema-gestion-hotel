@@ -40,7 +40,7 @@ El sistema es una aplicación de gestión hotelera desarrollada en Java, que com
 - `public void agregarHabitacion(Habitacion nuevaHabitacion)`
 - `public void mostrarInventario()`
 - `public boolean reservarHabitacion(int numeroDeseado, String nombreCliente)`
-- `public void checkoutHabitacion(int numeroHabitacion)`
+- `public double procesarCheckoutCompleto(int numero, int noches, double descuento)`
 - `public void guardarInventarioEnArchivo(String nombreArchivo)`
 - `public void cargarInventarioDesdeArchivo(String nombreArchivo)`
 
