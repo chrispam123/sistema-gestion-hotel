@@ -49,7 +49,7 @@ public class Hotel {// Definimos la clase Hotel
 
 
     //Metodo checkout y descuento
-    public double checkoutHabitacion(int numeroHabitacion, int noches, double descuento) {// Método para hacer checkout de una habitación
+    public double procesarCheckoutCompleto(int numeroHabitacion, int noches, double descuento) {// Método para hacer checkout de una habitación
         boolean encontrada = false;// Bandera para verificar si se encontró la habitación
         for (Habitacion h : listaHabitaciones) {// Recorremos la lista de habitaciones  
             if (h.numero == numeroHabitacion) {// Si encontramos la habitación deseada  
@@ -58,6 +58,8 @@ public class Hotel {// Definimos la clase Hotel
                     h.liberar();// Liberamos la habitación  
                     //System.out.println("✅ Checkout exitoso.");// Mensaje de confirmación  
                     double total = h.calcularTotalConDescuento(noches, descuento);
+                    this.guardarInventarioEnArchivo("inventario_hotel.txt");// Guardamos el inventario actualizado
+                    System.out.println("Persitencia de datos actualizada.");// Mensaje de confirmación
                     //System.out.println("Total a pagar con descuento: $" + total);   
                     return total;// Retornamos el total a pagar
                 } else {// Si ya está libre 

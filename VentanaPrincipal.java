@@ -89,7 +89,7 @@ public class VentanaPrincipal extends JFrame {
                     int noches = Integer.parseInt(nochesStr);
                     String descuentoStr = JOptionPane.showInputDialog("Ingrese el porcentaje de descuento:");
                     double descuento = Double.parseDouble(descuentoStr);
-                    double total = miHotel.checkoutHabitacion(numero, noches, descuento);
+                    double total = miHotel.procesarCheckoutCompleto(numero, noches, descuento);
                     if (total == -1) {
                         JOptionPane.showMessageDialog(null, "❌ La habitación ya está libre.");
                     } else if (total == -2) {
