@@ -83,6 +83,28 @@ public class VentanaPrincipal extends JFrame {
                 try {
                     String numeroStr = JOptionPane.showInputDialog("Ingrese el número de la habitación para hacer checkout:");
                     int numero = Integer.parseInt(numeroStr);
+                    //pedir el numero de noches 
+                    String nochesStr = JOptionPane.showInputDialog("Ingrese el número de noches:");
+                    //pedor el porcentaje de descuento
+                    int noches = Integer.parseInt(nochesStr);
+                    String descuentoStr = JOptionPane.showInputDialog("Ingrese el porcentaje de descuento:");
+                    double descuento = Double.parseDouble(descuentoStr);
+                    //buscar la habitacion para calcular el total con descuento
+                    Habitacion hab = null;
+                    for (Habitacion h : miHotel.listaHabitaciones) {
+                        if (h.numero == numero) {
+                            hab = h;
+                            break;
+                        }
+                    }
+                    if (hab != null) {
+                        double totalConDescuento = hab.calcularTotalConDescuento(noches, descuento);
+                        JOptionPane.showMessageDialog(null, "El total a pagar con descuento es: $" + totalConDescuento);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "❌ No se encontró la habitación.");
+                        return;
+                    }
+                    
 
                     miHotel.checkoutHabitacion(numero);
                     JOptionPane.showMessageDialog(null, "✅ Checkout procesado.");
