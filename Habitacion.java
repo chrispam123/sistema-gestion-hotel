@@ -38,8 +38,8 @@ public class Habitacion {
   //NUEVO metodo que calcula el total aplicando un descuento
     public double calcularTotalConDescuento(int noches, double porcentajeDescuento) {// Recibe el número de noches y el porcentaje de descuento
         double totalSinDescuento = calcularTotal(noches);// Calcula el total sin descuento
-        double descuento = totalSinDescuento * (porcentajeDescuento / 100);// Calcula el monto del descuento
-        return totalSinDescuento - descuento;// Retorna el total con descuento aplicado
+        double descuento1 = totalSinDescuento * (porcentajeDescuento / 100);// Calcula el monto del descuento
+        return totalSinDescuento - descuento1;// Retorna el total con descuento aplicado
     }  
     // Usaremos este método manual en lugar de toString()
     
