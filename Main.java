@@ -1,5 +1,5 @@
 
-import java.util.Scanner;// Importamos la clase Scanner para entrada de datos
+//import java.util.Scanner;// Importamos la clase Scanner para entrada de datos
 
 public class Main {//  Definimos la clase Main
     public static void main(String[] args) {// Método principal
